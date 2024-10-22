@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { RoleDataService } from './role-data.service';
 import { RoleDataController } from './role-data.controller';
-import { RoleData } from '../../../../../../../work_lean/vue3-admin-backend/src/api/entitys/role-data.entity';
+import { RoleData } from '@app/entities';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({

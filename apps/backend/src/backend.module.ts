@@ -19,6 +19,8 @@ import { MenuModule } from './modules/menu/menu.module';
 import { RoleModule } from './modules/role/role.module';
 import { RoleDataModule } from './modules/role-data/role-data.module';
 import { SystemLogModule } from './modules/system-log/system-log.module';
+import { readdirSync } from 'fs';
+import { User, Role, RoleData, Menu, SystemLog, Pricing, Navigation, Article } from '@app/entities';
 
 @Module({
   imports: [
@@ -67,11 +69,12 @@ import { SystemLogModule } from './modules/system-log/system-log.module';
     }),
     ConfigModule.forRoot({
       isGlobal: true,
-      // envFilePath: 'src/.env'
-      envFilePath: 'src/.env.local'
+      envFilePath: join(process.cwd(), '.env') // Updated to point to the root directory
     }),
     TypeOrmModule.forRootAsync({
       useFactory(configService: ConfigService) {
+        console.log(join(__dirname, '../../../', 'libs', 'entities', 'src', 'entity', '*.entity.{ts,js}'), 'entities....')
+
         return {
           type: "mysql",
           host: configService.get('mysql_server_host'),
@@ -81,8 +84,9 @@ import { SystemLogModule } from './modules/system-log/system-log.module';
           database: configService.get('mysql_server_database'),
           synchronize: false,
           logging: true,
-          entities: [__dirname + '/**/*.entity{.ts,.js}'],
-          // entities: [Pricing],
+          entities: [
+            User, Role, RoleData, Menu, SystemLog, Pricing, Navigation, Article
+          ],
           poolSize: 10,
           connectorPackage: 'mysql2',
           extra: {

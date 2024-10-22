@@ -1,5 +1,5 @@
 import { Column, CreateDateColumn, Entity, PrimaryColumn, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
-import { BaseEntity } from "./BaseEntity";
+import { BaseEntity } from "../BaseEntity";
 
 @Entity('navigation')
 export class Navigation extends BaseEntity {

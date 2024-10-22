@@ -1,7 +1,5 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, Inject, HttpStatus, Query, Req, HttpException, DefaultValuePipe, ParseIntPipe } from '@nestjs/common';
 import { UserService } from './user.service';
-import { EmailService } from '@app/email';
-import { RedisService } from '@app/redis';
 import { RequireLogin } from '@app/common';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
@@ -12,6 +10,7 @@ import { UpdatePasswordDto } from './dto/update_paddword.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { changeEmailDto } from './dto/change-email.dto';
 import { RegitserUserDto } from './dto/regitser-user.dto';
+import { join } from 'path';
 
 @Controller('user')
 export class UserController {
@@ -23,12 +22,6 @@ export class UserController {
 
   @Inject(ConfigService)
   private configService: ConfigService;
-
-  @Inject(EmailService)
-  private emailService: EmailService;
-
-  @Inject(RedisService)
-  private redisService: RedisService;
 
   /**
    * 登录

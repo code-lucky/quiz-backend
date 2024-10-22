@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { NavigationService } from './navigation.service';
 import { NavigationController } from './navigation.controller';
-import { Navigation } from '../../../../../../../work_lean/vue3-admin-backend/src/api/entitys/navigation.entity';
+import { Navigation } from '@app/entities';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({

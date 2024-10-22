@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { PricingService } from './pricing.service';
 import { PricingController } from './pricing.controller';
-import { Pricing } from '../../../../../../../work_lean/vue3-admin-backend/src/api/entitys/pricing.entity';
+import { Pricing } from '@app/entities';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({

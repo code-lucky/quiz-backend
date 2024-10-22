@@ -12,10 +12,10 @@ import { ConfigService } from '@nestjs/config';
       async useFactory(configService:ConfigService) {
         const client = createClient({
             socket: {
-                host: configService.get('redis_server_host'),
-                port: configService.get('redis_server_port'),
+                host: '127.0.0.1',
+                port: 6379,
             },
-            database: configService.get('redis_server_db'),
+            database: 1,
         });
         await client.connect();
         return client;

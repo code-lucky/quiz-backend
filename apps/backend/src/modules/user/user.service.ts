@@ -10,7 +10,7 @@ import { LoginUserVo } from './vo/login-user.vo';
 import { Role } from '@app/entities';
 import { UpdatePasswordDto } from './dto/update_paddword.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { EmailService } from '../email/email.service';
+import { EmailService } from '@app/email';
 import { changeEmailDto } from './dto/change-email.dto';
 import { RegitserUserDto } from './dto/regitser-user.dto';
 @Injectable()

@@ -40,6 +40,7 @@ export class MenuService {
         getRawMany();
       return list;
     } catch (e) {
+      console.log(e)
       throw new HttpException('获取菜单列表失败', HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }

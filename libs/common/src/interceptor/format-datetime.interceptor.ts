@@ -16,7 +16,7 @@ export class FormatDatetimeInterceptor implements NestInterceptor {
       return data.map(item => this.formatDateTimeFields(item));
     } else if (data !== null && typeof data === 'object') {
       return Object.keys(data).reduce((acc, key) => {
-        acc[key] = (key === 'created_at' || key === 'updated_at') && this.isDate(data[key])
+        acc[key] = (key === 'create_time' || key === 'update_time') && this.isDate(data[key])
           ? format(new Date(data[key]), 'yyyy-MM-dd HH:mm:ss')
           : this.formatDateTimeFields(data[key]);
         return acc;
