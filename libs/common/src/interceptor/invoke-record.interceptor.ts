@@ -33,7 +33,6 @@ export class InvokeRecordInterceptor implements NestInterceptor {
         this.logger.debug(
           `${method} ${path} ${ip} ${userAgent}: ${response.statusCode}: ${Date.now() - now}ms`,
         );
-        this.logger.debug(`Response: ${JSON.stringify(res)}`);
       }),
     );
   }
